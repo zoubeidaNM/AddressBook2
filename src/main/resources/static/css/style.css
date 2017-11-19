@@ -1,0 +1,38 @@
+.roboto
+{
+    font-family: 'Roboto', sans-serif;
+    color: indianred;
+}
+
+.navbar-default {
+    background-color: antiquewhite;
+    border-color: #E7E7E7;
+}
+
+.bg{
+    background-image: linear-gradient(to right, #70e1f5, #ffd194);
+}
+
+.form_bg{
+    padding: 10%;
+    border: 1px ridge gray;
+}
+
+.labelst{
+    text-align: right;
+    font-size: medium;
+}
+
+.inputst{
+    padding-bottom: 1em;
+    padding-top: 1em;
+    font-size: medium;
+}
+.submitst {
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
+
+.tspan{
+    color: darkblue;
+}

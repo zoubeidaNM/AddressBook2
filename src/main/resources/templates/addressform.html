@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Add Address</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <!-- adding fonts to website to make it more attractive. Use google fonts bt referencing the css on the Google Fonts APIs CDN-->
+    <link href="https://fonts.googleapis.com/css?family=Rozha+One|Roboto" rel="stylesheet"/>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="/css/style.css"/>
+   <link rel="stylesheet" href="/css/light-bootstrap-dashboard.css"/>
+
+</head>
+
+<body class="bg">
+<!-- collapsable navbar begin -->
+<nav class="navbar navbar-default roboto" data-color="orange">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Address Book</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="/add">Add<span class="sr-only">(current)</span></a></li>
+                <li><a href="/">Show All</a></li>
+                <li ><a href="/modify">Modify</a></li>
+                <li ><a href="/delete">Delete</a></li>
+                <li ><a href="/search">Search</a></li>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+<!-- collapsable navbar end -->
+
+<div class="container">
+
+
+    <form action="#" th:action="@{/process}" th:object="${address}" method="post" class="form_bg">
+        <h2>Address Form: </h2>
+        <input type="hidden" th:field="*{id}"/>
+        <div class="row inputst">
+            <label class="col-md-3 labelst"> Name :</label>
+            <input type="text" class="col-md-6" th:field="*{name}" placeholder="Enter name"/>
+            <span class="col-md-3" th:if="${#fields.hasErrors('name')}"
+                  th:errors="*{name}"></span><br/>
+        </div>
+        <div class="row inputst">
+            <label class="col-md-3 labelst"> Email :</label>
+            <input type="text" class="col-md-6" th:field="*{email}" placeholder="Enter email"/>
+            <span class="col-md-3" th:if="${#fields.hasErrors('email')}"
+                  th:errors="*{email}"></span><br/>
+        </div>
+        <div class="row inputst">
+            <label class="col-md-3 labelst"> Cell Phone :</label>
+            <input type="text" pattern="[0-9]{10}" title="only numbers" class="col-md-6" th:field="*{phone}" placeholder="Enter phone number"/>
+            <span class="col-md-3" th:if="${#fields.hasErrors('phone')}"
+                  th:errors="*{phone}"></span><br/>
+        </div>
+        <br/>
+        <div class="col-md-12">
+            <input class="submitst" type="submit" value="Submit"/>
+        </div>
+    </form>
+</div>
+<!-- Latest compiled and minified JavaScript form jquery and the bootstrap-->
+<script
+        src="http://code.jquery.com/jquery-3.2.1.js"
+        integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+</body>
+</html>
